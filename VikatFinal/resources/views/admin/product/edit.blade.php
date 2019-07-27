@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
           <label for="desc">Description</label>
-          <textarea name="desc" id="" cols="30" rows="10" class="form-control">{{$product->desc}}</textarea>
+          <textarea name="desc" id="" cols="30" rows="10" class="form-control" style="white-space: pre-wrap;">{{$product->desc}}</textarea>
           @error('desc')<small id="helpId" class="text-muted">Your input is invalid.</small>@enderror
         </div>
         <div class="form-group">

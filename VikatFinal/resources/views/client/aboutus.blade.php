@@ -18,7 +18,7 @@
 
             <div class="teammembers">
                 <div class="meetimagecontainer">
-                    <img src="/images/sushantsir.jpg">
+                    <img src="/images/aboutus-sushant-sir.jpg">
                 </div>
 
                 <div class="meetinfo">

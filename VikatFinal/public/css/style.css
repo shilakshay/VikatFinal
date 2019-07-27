@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+@font-face {
+    font-family: 'Gotham';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Gotham Medium'), url('../fonts/GothamMedium.woff') format('woff');
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -270,6 +279,7 @@ hr {
     max-width: 300px;
     line-height: 26px;
     float: left;
+    color: #181b20;
 }
 
 .productprice {
@@ -505,23 +515,24 @@ hr {
     color: #585858;
 }
 
-.backtotop {
+.backtotop{
     display: flex;
+    justify-content: center;
+}
+
+.backtotop a{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
+    text-decoration: none;
 }
 
-.backtotop > p {
-    margin-right: 10px;
+.backtotop a p{
+    padding: 0 1em;
+    text-decoration: none;
+    color: black;
 }
-
-.backtotop:hover {
-    cursor: pointer;
-}
-
-.backtotop:hover p {
-    color: #20a3f2;
-}
-
 
 /* About Us Page */
 
@@ -716,7 +727,8 @@ hr {
     margin-top: 12px;
     font-size: 20px;
     color: #404040;
-    white-space: nowrap;;
+    white-space: nowrap;
+    margin:1em 0 3em 0;
 }
 
 .radiobuttons label {
@@ -853,8 +865,8 @@ hr {
 }
 
 .productimagesmallcontainer {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border: 1px solid #eaeaea;
     margin-bottom: 5px;
     display: flex;
@@ -863,8 +875,8 @@ hr {
 }
 
 .productimagessmall img {
-    max-width: 46px;
-    max-height: 40px;
+    max-width: 80px;
+    max-height: 80px;
 }
 
 .productimagebig {

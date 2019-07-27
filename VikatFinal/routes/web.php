@@ -1,4 +1,5 @@
 <?php
+use App\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@
 //Admin Routes
 Route::get('/admin/home', function(){
     return view('admin.home');
-})->name('home');
+})->name('adminhome');
+
+Route::any('/admin/verifyadmin/{$token}','AdminController@sendAdminVerify');
 
 Route::get('/admin/register','AdminController@showRegisterForm');
 
@@ -80,6 +83,14 @@ Route::any('/admin/dashboard/slider/edit','SliderController@edit')->middleware('
 Route::any('/admin/action/slider/delete/{id}',"SliderController@destroy")->middleware('adminauth');
 
 /*
+*       Messages
+*/
+
+Route::post('/admin/action/message',"ClientMessageController@store");
+
+Route::any('/admin/message/get',"ClientMessageController@index")->middleware('adminauth');
+
+/*
 **           Mail
 */
 
@@ -89,7 +100,6 @@ Route::any('/admin/resetpassword/action','AdminController@forgotPasswordMailSend
 Route::any('/admin/account/verify/{token}','AdminController@verifyPasswordResetToken');
 
 Route::any('/admin/resetpassword/final_action',"AdminController@verifyPasswordGetNewPassword");
-
 /*
 *  Client
 *
@@ -97,13 +107,30 @@ Route::any('/admin/resetpassword/final_action',"AdminController@verifyPasswordGe
 
 Route::any('/aboutus', function(){
     return view('client.aboutus');
-});
+})->name('aboutus');
 
 Route::any('/products', function(){
-    return view('client.products');
+    $product = Product::with('images')->get();
+    return view('client.products')->with('collection',$product);
+})->name('product');
+
+Route::any('/',function(){
+    return view('client.home');
+})->name('home');
+
+Route::any('/product/{id}',function($id){
+    $product = Product::with('images')->where('id','=',$id)->first();
+    //return $product;
+    return view('client.product')->with('product',$product);
 });
 
-Route::any('/product',function(){
-
+Route::any('/contactus',function(){
+    return view('client.contactus');
 });
+
+/*
+ *
+ *  Admin
+ */
+
 

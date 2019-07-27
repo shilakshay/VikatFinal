@@ -29,3 +29,11 @@
 |        | GET|HEAD|POST|PUT|PATCH|DELETE|OPTIONS | admin/resetpassword/final_action         |           | App\Http\Controllers\AdminController@verifyPasswordGetNewPassword | web           |
 |        | GET|HEAD                               | api/user                                 |           | Closure                                                           | api,auth:api  |
 +--------+----------------------------------------+------------------------------------------+-----------+-------------------------------------------------------------------+---------------+
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=03dfc60c8f1340
+MAIL_PASSWORD=f2a47916f9dcf7
+MAIL_FROM_ADDRESS=from@example.com
+MAIL_FROM_NAME=Vikat

@@ -40,14 +40,16 @@
         <div class="footerlastpart">
 
             <div>
-                <img src="images/greylogo.png">
+                <img src="/images/greylogo.png">
             </div>
             <div>
                 <p class="copyright">© Copyright 2019 Vikat Pvt. Ltd. All Rights Reserved.</p>
             </div>
             <div class="backtotop">
-                <p>Back to top</p>
-                <img src="images/backtotop.png">
+                <a href="#header-container">
+                    <p>Back to top</p>
+                    <img src="/images/backtotop.png">
+                </a>
             </div>
 
         </div>

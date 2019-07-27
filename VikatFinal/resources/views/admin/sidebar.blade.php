@@ -22,8 +22,7 @@
     <div class="link-group">
         <p>Messages</p>
         <div class="links">
-            <a href="#">View</a>
-            <a href="#">Create</a>
+            <a href="/admin/message/get">View</a>
         </div>
     </div>
 </div>

@@ -53,7 +53,12 @@ class AdminController extends Controller
             ]);
 
             //Verification Mail Send
-
+            $data = [
+                'name' => $admin->name,
+                'email' => $admin->email,
+                'token' => $verification->token
+            ];
+            \Mail::to($request->user())->send(new MailableClass($data));
 
             //return the view to login page
             return view('admin.login');
@@ -111,19 +116,10 @@ class AdminController extends Controller
         }
     }
 
-    public function passwordChange(){
-
-    }
-
     public function logout(Request $request)
     {
         $request->session()->flush();
         return redirect()->route('login');
-    }
-
-    public function dummy(Request $request)
-    {
-        return dd($request);
     }
 
     public function forgotPasswordForm()
@@ -215,8 +211,22 @@ class AdminController extends Controller
         }
     }
 
-    public function setNewPassword()
-    {
+    public function sendAdminVerify(Request $request,$token){
+        //Find the token if it exists go to next step or else
+        //return error view
 
+        $token = VerifyAdmin::where('token','=',$token)->first();
+        if(!is_null($token))
+        {
+            $id = $token->admin_id;
+            $admin = Admin::find($id)->first();
+            $admin->verified = true;
+            $admin->save();
+            $token->delete();
+            return view('admin.success')->with('message','The request has been granted.');
+        }
+        else{
+            return view('admin.error')->with('message',"No such request has been made.");
+        }
     }
 }

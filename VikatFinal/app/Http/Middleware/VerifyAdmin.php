@@ -16,7 +16,7 @@ class VerifyAdmin
     public function handle($request, Closure $next)
     {
         if(!$request->session()->get('user')){
-            return redirect()->route('home');
+            return redirect()->route('adminhome');
         }
         else{
             return $next($request);
